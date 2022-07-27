@@ -81,9 +81,9 @@ public class BlogServiceImpl implements BlogService {
 			String content = searchBlog.getContent();
 			int contentLength = content.length();
 			int index = content.indexOf(query) - 10;
-			index = index < 0 ? 0 : index;
+			index = Math.max(index, 0);
 			int end = index + 21;//以关键字字符串为中心返回21个字
-			end = end > contentLength - 1 ? contentLength - 1 : end;
+			end = Math.min(end, contentLength - 1);
 			searchBlog.setContent(content.substring(index, end));
 		}
 		return searchBlogs;
@@ -98,7 +98,7 @@ public class BlogServiceImpl implements BlogService {
 	public List<NewBlog> getNewBlogListByIsPublished() {
 		String redisKey = RedisKeyConstants.NEW_BLOG_LIST;
 		List<NewBlog> newBlogListFromRedis = redisService.getListByValue(redisKey);
-		if (newBlogListFromRedis != null) {
+		if (newBlogListFromRedis != null && newBlogListFromRedis.size()>1) {
 			return newBlogListFromRedis;
 		}
 		PageHelper.startPage(1, newBlogPageSize);
