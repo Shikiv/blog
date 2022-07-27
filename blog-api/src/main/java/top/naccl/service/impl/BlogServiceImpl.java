@@ -98,7 +98,7 @@ public class BlogServiceImpl implements BlogService {
 	public List<NewBlog> getNewBlogListByIsPublished() {
 		String redisKey = RedisKeyConstants.NEW_BLOG_LIST;
 		List<NewBlog> newBlogListFromRedis = redisService.getListByValue(redisKey);
-		if (newBlogListFromRedis != null) {
+		if (newBlogListFromRedis != null && newBlogListFromRedis.size()>1) {
 			return newBlogListFromRedis;
 		}
 		PageHelper.startPage(1, newBlogPageSize);
