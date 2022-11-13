@@ -8,6 +8,4 @@ DROP TABLE IF EXISTS `about`;
 
 123
 2
- 我是分支test的修改
-
-我是main分支的修改
+我是最终冲突解决的修改
