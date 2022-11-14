@@ -12,5 +12,4 @@ DROP TABLE IF EXISTS `about`;
 
 main分支中我修改了内容
 
-
-我是main特意制造的冲突
+这部分是有效的代码，手动解决了
