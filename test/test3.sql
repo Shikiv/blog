@@ -13,7 +13,4 @@ DROP TABLE IF EXISTS `about`;
 main分支中我修改了内容
 
 
-
-我是分支四，想要跟main合并
-
-我是分支四，我新增了内容
+手动解决
